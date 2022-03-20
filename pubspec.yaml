@@ -30,14 +30,28 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # 状態管理
+  flutter_riverpod: ^1.0.3
+  state_notifier: ^0.7.2+1
+  equatable: ^2.0.3
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  # データ管理
+  isar: ^2.2.1
+  isar_flutter_libs: ^2.2.1
+
+  # その他
   cupertino_icons: ^1.0.2
+  path_provider: ^2.0.9
+  url_launcher: ^6.0.20
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  build_runner: ^2.1.8
+  isar_generator: ^2.2.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
