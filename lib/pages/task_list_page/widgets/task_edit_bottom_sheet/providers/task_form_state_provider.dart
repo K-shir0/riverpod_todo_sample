@@ -30,14 +30,19 @@ class TaskFormStateNotifier extends StateNotifier<bool> {
     titleController = TextEditingController(text: task?.title);
     memoController = TextEditingController(text: task?.memo);
     urlController = TextEditingController(text: task?.url);
-    titleController.addListener(() {
-      state = titleController.text.isNotEmpty;
-    });
+    titleController.addListener(_onChange);
+
+    // 初回に呼び出さないと編集時に評価されない
+    _onChange();
   }
 
   void _controllerDispose() {
     titleController.dispose();
     memoController.dispose();
     urlController.dispose();
+  }
+
+  void _onChange() {
+    state = titleController.text.isNotEmpty;
   }
 }
