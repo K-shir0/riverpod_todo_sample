@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_todo_sample/models/todo.dart';
+import 'package:riverpod_todo_sample/models/task.dart';
 
-final todoFormStateProvider =
-    StateNotifierProvider.autoDispose<TodoFormStateNotifier, bool>(
-        (ref) => TodoFormStateNotifier());
+final taskFormStateProvider =
+    StateNotifierProvider.autoDispose<TaskFormStateNotifier, bool>(
+        (ref) => TaskFormStateNotifier());
 
-class TodoFormStateNotifier extends StateNotifier<bool> {
-  TodoFormStateNotifier() : super(false);
+class TaskFormStateNotifier extends StateNotifier<bool> {
+  TaskFormStateNotifier() : super(false);
 
   late TextEditingController titleController = TextEditingController();
   late TextEditingController memoController = TextEditingController();
@@ -20,16 +20,16 @@ class TodoFormStateNotifier extends StateNotifier<bool> {
     super.dispose();
   }
 
-  void init({Todo? todo}) {
+  void init({Task? task}) {
     // 既に初期化してあった場合に破棄
     if (isInitialized) {
       _controllerDispose();
     }
     isInitialized = true;
 
-    titleController = TextEditingController(text: todo?.title);
-    memoController = TextEditingController(text: todo?.memo);
-    urlController = TextEditingController(text: todo?.url);
+    titleController = TextEditingController(text: task?.title);
+    memoController = TextEditingController(text: task?.memo);
+    urlController = TextEditingController(text: task?.url);
     titleController.addListener(() {
       state = titleController.text.isNotEmpty;
     });

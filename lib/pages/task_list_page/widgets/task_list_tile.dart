@@ -1,52 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_todo_sample/models/todo.dart';
-import 'package:riverpod_todo_sample/pages/todo_list_page/widgets/todo_edit_bottom_sheet/todo_edit_bottom_sheet.dart';
-import 'package:riverpod_todo_sample/providers/todo_provider.dart';
+import 'package:riverpod_todo_sample/models/task.dart';
+import 'package:riverpod_todo_sample/pages/task_list_page/widgets/task_edit_bottom_sheet/task_edit_bottom_sheet.dart';
+import 'package:riverpod_todo_sample/providers/task_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class TodoListTile extends ConsumerWidget {
-  const TodoListTile({
+class TaskListTile extends ConsumerWidget {
+  const TaskListTile({
     Key? key,
-    required this.todo,
+    required this.task,
   }) : super(key: key);
 
-  final Todo todo;
+  final Task task;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: () => TodoEditBottomSheet().show(context, todo: todo),
+      onTap: () => TaskEditBottomSheet().show(context, task: task),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Checkbox(
             value: false,
             onChanged: (_) => ref.read(
-              TodoProviders.deleteTodoUseCaseProvider()(todo.id!),
+              TaskProviders.deleteTaskUseCaseProvider()(task.id!),
             ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                todo.title,
+                task.title,
                 style: Theme.of(context).textTheme.subtitle1,
               ),
               Text(
-                todo.memo,
+                task.memo,
                 style: Theme.of(context).textTheme.caption,
               ),
-              if (todo.url.isNotEmpty) ...[
+              if (task.url.isNotEmpty) ...[
                 const SizedBox(height: 4),
                 GestureDetector(
                   onTap: () async {
-                    if (await canLaunch(todo.url)) {
-                      launch(todo.url);
+                    if (await canLaunch(task.url)) {
+                      launch(task.url);
                     }
                   },
-                  child: UrlBadge(url: todo.url),
+                  child: UrlBadge(url: task.url),
                 ),
               ]
             ],

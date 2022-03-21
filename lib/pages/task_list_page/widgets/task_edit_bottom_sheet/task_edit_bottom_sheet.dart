@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_todo_sample/models/todo.dart';
-import 'package:riverpod_todo_sample/pages/todo_list_page/widgets/todo_edit_bottom_sheet/providers/todo_form_state_provider.dart';
-import 'package:riverpod_todo_sample/providers/todo_provider.dart';
+import 'package:riverpod_todo_sample/models/task.dart';
+import 'package:riverpod_todo_sample/pages/task_list_page/widgets/task_edit_bottom_sheet/providers/task_form_state_provider.dart';
+import 'package:riverpod_todo_sample/providers/task_provider.dart';
 
-class TodoEditBottomSheet {
-  show(BuildContext context, {Todo? todo}) {
+class TaskEditBottomSheet {
+  show(BuildContext context, {Task? task}) {
     return showModalBottomSheet(
       context: context,
       isDismissible: false,
-      builder: (context) => _Body(todo: todo),
+      builder: (context) => _Body(task: task),
     );
   }
 }
@@ -17,10 +17,10 @@ class TodoEditBottomSheet {
 class _Body extends ConsumerStatefulWidget {
   const _Body({
     Key? key,
-    this.todo,
+    this.task,
   }) : super(key: key);
 
-  final Todo? todo;
+  final Task? task;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _BodyState();
@@ -31,12 +31,12 @@ class _BodyState extends ConsumerState<_Body> {
   void initState() {
     super.initState();
 
-    ref.read(todoFormStateProvider.notifier).init(todo: widget.todo);
+    ref.read(taskFormStateProvider.notifier).init(task: widget.task);
   }
 
   @override
   Widget build(BuildContext context) {
-    final formProvider = ref.read(todoFormStateProvider.notifier);
+    final formProvider = ref.read(taskFormStateProvider.notifier);
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -51,22 +51,22 @@ class _BodyState extends ConsumerState<_Body> {
               ),
               // Consumer で限定的にしないとテキスト編集でリビルドされてしまう
               Consumer(builder: (BuildContext _, WidgetRef ref, Widget? __) {
-                final isInputted = ref.watch(todoFormStateProvider);
+                final isInputted = ref.watch(taskFormStateProvider);
 
                 return TextButton(
                   onPressed: isInputted
                       ? () async {
-                          final todo = await ref
-                              .read(TodoProviders.saveTodoUseCaseProvider()(
-                            Todo(
-                              id: widget.todo?.id,
+                          final task = await ref
+                              .read(TaskProviders.saveTaskUseCaseProvider()(
+                            Task(
+                              id: widget.task?.id,
                               title: formProvider.titleController.text,
                               memo: formProvider.memoController.text,
                               url: formProvider.urlController.text,
                             ),
                           ));
 
-                          if (todo != null) {
+                          if (task != null) {
                             Navigator.pop(context);
                           }
                         }

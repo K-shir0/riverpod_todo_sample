@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_todo_sample/pages/todo_list_page/todo_list_page.dart';
+import 'package:riverpod_todo_sample/pages/task_list_page/task_list_page.dart';
 import 'package:riverpod_todo_sample/providers/isar.dart';
 
 class MyApp extends ConsumerWidget {
@@ -15,7 +15,7 @@ class MyApp extends ConsumerWidget {
       data: (_) => MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: const TodoListPage(),
+        home: const TaskListPage(),
       ),
       error: (e, s) => const SizedBox.shrink(),
       loading: () => const SizedBox.shrink(),

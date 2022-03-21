@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'todo.dart';
+part of 'task.dart';
 
 // **************************************************************************
 // IsarCollectionGenerator
@@ -8,18 +8,18 @@ part of 'todo.dart';
 
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast
 
-extension GetTodoCollection on Isar {
-  IsarCollection<Todo> get todos {
-    return getCollection('Todo');
+extension GetTaskCollection on Isar {
+  IsarCollection<Task> get tasks {
+    return getCollection('Task');
   }
 }
 
-final TodoSchema = CollectionSchema(
-  name: 'Todo',
+final TaskSchema = CollectionSchema(
+  name: 'Task',
   schema:
-      '{"name":"Todo","idName":"id","properties":[{"name":"hashCode","type":"Long"},{"name":"memo","type":"String"},{"name":"stringify","type":"Bool"},{"name":"title","type":"String"},{"name":"url","type":"String"}],"indexes":[],"links":[]}',
-  nativeAdapter: const _TodoNativeAdapter(),
-  webAdapter: const _TodoWebAdapter(),
+      '{"name":"Task","idName":"id","properties":[{"name":"hashCode","type":"Long"},{"name":"memo","type":"String"},{"name":"stringify","type":"Bool"},{"name":"title","type":"String"},{"name":"url","type":"String"}],"indexes":[],"links":[]}',
+  nativeAdapter: const _TaskNativeAdapter(),
+  webAdapter: const _TaskWebAdapter(),
   idName: 'id',
   propertyIds: {'hashCode': 0, 'memo': 1, 'stringify': 2, 'title': 3, 'url': 4},
   listProperties: {},
@@ -40,11 +40,11 @@ final TodoSchema = CollectionSchema(
   version: 2,
 );
 
-class _TodoWebAdapter extends IsarWebTypeAdapter<Todo> {
-  const _TodoWebAdapter();
+class _TaskWebAdapter extends IsarWebTypeAdapter<Task> {
+  const _TaskWebAdapter();
 
   @override
-  Object serialize(IsarCollection<Todo> collection, Todo object) {
+  Object serialize(IsarCollection<Task> collection, Task object) {
     final jsObj = IsarNative.newJsObject();
     IsarNative.jsObjectSet(jsObj, 'hashCode', object.hashCode);
     IsarNative.jsObjectSet(jsObj, 'id', object.id);
@@ -56,8 +56,8 @@ class _TodoWebAdapter extends IsarWebTypeAdapter<Todo> {
   }
 
   @override
-  Todo deserialize(IsarCollection<Todo> collection, dynamic jsObj) {
-    final object = Todo(
+  Task deserialize(IsarCollection<Task> collection, dynamic jsObj) {
+    final object = Task(
       id: IsarNative.jsObjectGet(jsObj, 'id'),
       memo: IsarNative.jsObjectGet(jsObj, 'memo') ?? '',
       title: IsarNative.jsObjectGet(jsObj, 'title') ?? '',
@@ -88,15 +88,15 @@ class _TodoWebAdapter extends IsarWebTypeAdapter<Todo> {
   }
 
   @override
-  void attachLinks(Isar isar, int id, Todo object) {}
+  void attachLinks(Isar isar, int id, Task object) {}
 }
 
-class _TodoNativeAdapter extends IsarNativeTypeAdapter<Todo> {
-  const _TodoNativeAdapter();
+class _TaskNativeAdapter extends IsarNativeTypeAdapter<Task> {
+  const _TaskNativeAdapter();
 
   @override
-  void serialize(IsarCollection<Todo> collection, IsarRawObject rawObj,
-      Todo object, int staticSize, List<int> offsets, AdapterAlloc alloc) {
+  void serialize(IsarCollection<Task> collection, IsarRawObject rawObj,
+      Task object, int staticSize, List<int> offsets, AdapterAlloc alloc) {
     var dynamicSize = 0;
     final value0 = object.hashCode;
     final _hashCode = value0;
@@ -125,9 +125,9 @@ class _TodoNativeAdapter extends IsarNativeTypeAdapter<Todo> {
   }
 
   @override
-  Todo deserialize(IsarCollection<Todo> collection, int id,
+  Task deserialize(IsarCollection<Task> collection, int id,
       IsarBinaryReader reader, List<int> offsets) {
-    final object = Todo(
+    final object = Task(
       id: id,
       memo: reader.readString(offsets[1]),
       title: reader.readString(offsets[3]),
@@ -158,17 +158,17 @@ class _TodoNativeAdapter extends IsarNativeTypeAdapter<Todo> {
   }
 
   @override
-  void attachLinks(Isar isar, int id, Todo object) {}
+  void attachLinks(Isar isar, int id, Task object) {}
 }
 
-extension TodoQueryWhereSort on QueryBuilder<Todo, Todo, QWhere> {
-  QueryBuilder<Todo, Todo, QAfterWhere> anyId() {
+extension TaskQueryWhereSort on QueryBuilder<Task, Task, QWhere> {
+  QueryBuilder<Task, Task, QAfterWhere> anyId() {
     return addWhereClauseInternal(const WhereClause(indexName: null));
   }
 }
 
-extension TodoQueryWhere on QueryBuilder<Todo, Todo, QWhereClause> {
-  QueryBuilder<Todo, Todo, QAfterWhereClause> idEqualTo(int? id) {
+extension TaskQueryWhere on QueryBuilder<Task, Task, QWhereClause> {
+  QueryBuilder<Task, Task, QAfterWhereClause> idEqualTo(int? id) {
     return addWhereClauseInternal(WhereClause(
       indexName: null,
       lower: [id],
@@ -178,7 +178,7 @@ extension TodoQueryWhere on QueryBuilder<Todo, Todo, QWhereClause> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterWhereClause> idNotEqualTo(int? id) {
+  QueryBuilder<Task, Task, QAfterWhereClause> idNotEqualTo(int? id) {
     if (whereSortInternal == Sort.asc) {
       return addWhereClauseInternal(WhereClause(
         indexName: null,
@@ -202,7 +202,7 @@ extension TodoQueryWhere on QueryBuilder<Todo, Todo, QWhereClause> {
     }
   }
 
-  QueryBuilder<Todo, Todo, QAfterWhereClause> idGreaterThan(
+  QueryBuilder<Task, Task, QAfterWhereClause> idGreaterThan(
     int? id, {
     bool include = false,
   }) {
@@ -213,7 +213,7 @@ extension TodoQueryWhere on QueryBuilder<Todo, Todo, QWhereClause> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterWhereClause> idLessThan(
+  QueryBuilder<Task, Task, QAfterWhereClause> idLessThan(
     int? id, {
     bool include = false,
   }) {
@@ -224,7 +224,7 @@ extension TodoQueryWhere on QueryBuilder<Todo, Todo, QWhereClause> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterWhereClause> idBetween(
+  QueryBuilder<Task, Task, QAfterWhereClause> idBetween(
     int? lowerId,
     int? upperId, {
     bool includeLower = true,
@@ -240,8 +240,8 @@ extension TodoQueryWhere on QueryBuilder<Todo, Todo, QWhereClause> {
   }
 }
 
-extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> hashCodeEqualTo(int value) {
+extension TaskQueryFilter on QueryBuilder<Task, Task, QFilterCondition> {
+  QueryBuilder<Task, Task, QAfterFilterCondition> hashCodeEqualTo(int value) {
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.eq,
       property: 'hashCode',
@@ -249,7 +249,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> hashCodeGreaterThan(
+  QueryBuilder<Task, Task, QAfterFilterCondition> hashCodeGreaterThan(
     int value, {
     bool include = false,
   }) {
@@ -261,7 +261,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> hashCodeLessThan(
+  QueryBuilder<Task, Task, QAfterFilterCondition> hashCodeLessThan(
     int value, {
     bool include = false,
   }) {
@@ -273,7 +273,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> hashCodeBetween(
+  QueryBuilder<Task, Task, QAfterFilterCondition> hashCodeBetween(
     int lower,
     int upper, {
     bool includeLower = true,
@@ -288,7 +288,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> idIsNull() {
+  QueryBuilder<Task, Task, QAfterFilterCondition> idIsNull() {
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.isNull,
       property: 'id',
@@ -296,7 +296,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> idEqualTo(int? value) {
+  QueryBuilder<Task, Task, QAfterFilterCondition> idEqualTo(int? value) {
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.eq,
       property: 'id',
@@ -304,7 +304,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> idGreaterThan(
+  QueryBuilder<Task, Task, QAfterFilterCondition> idGreaterThan(
     int? value, {
     bool include = false,
   }) {
@@ -316,7 +316,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> idLessThan(
+  QueryBuilder<Task, Task, QAfterFilterCondition> idLessThan(
     int? value, {
     bool include = false,
   }) {
@@ -328,7 +328,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> idBetween(
+  QueryBuilder<Task, Task, QAfterFilterCondition> idBetween(
     int? lower,
     int? upper, {
     bool includeLower = true,
@@ -343,7 +343,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> memoEqualTo(
+  QueryBuilder<Task, Task, QAfterFilterCondition> memoEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -355,7 +355,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> memoGreaterThan(
+  QueryBuilder<Task, Task, QAfterFilterCondition> memoGreaterThan(
     String value, {
     bool caseSensitive = true,
     bool include = false,
@@ -369,7 +369,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> memoLessThan(
+  QueryBuilder<Task, Task, QAfterFilterCondition> memoLessThan(
     String value, {
     bool caseSensitive = true,
     bool include = false,
@@ -383,7 +383,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> memoBetween(
+  QueryBuilder<Task, Task, QAfterFilterCondition> memoBetween(
     String lower,
     String upper, {
     bool caseSensitive = true,
@@ -400,7 +400,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> memoStartsWith(
+  QueryBuilder<Task, Task, QAfterFilterCondition> memoStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -412,7 +412,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> memoEndsWith(
+  QueryBuilder<Task, Task, QAfterFilterCondition> memoEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -424,7 +424,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> memoContains(String value,
+  QueryBuilder<Task, Task, QAfterFilterCondition> memoContains(String value,
       {bool caseSensitive = true}) {
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.contains,
@@ -434,7 +434,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> memoMatches(String pattern,
+  QueryBuilder<Task, Task, QAfterFilterCondition> memoMatches(String pattern,
       {bool caseSensitive = true}) {
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.matches,
@@ -444,7 +444,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> stringifyIsNull() {
+  QueryBuilder<Task, Task, QAfterFilterCondition> stringifyIsNull() {
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.isNull,
       property: 'stringify',
@@ -452,7 +452,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> stringifyEqualTo(
+  QueryBuilder<Task, Task, QAfterFilterCondition> stringifyEqualTo(
       bool? value) {
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.eq,
@@ -461,7 +461,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> titleEqualTo(
+  QueryBuilder<Task, Task, QAfterFilterCondition> titleEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -473,7 +473,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> titleGreaterThan(
+  QueryBuilder<Task, Task, QAfterFilterCondition> titleGreaterThan(
     String value, {
     bool caseSensitive = true,
     bool include = false,
@@ -487,7 +487,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> titleLessThan(
+  QueryBuilder<Task, Task, QAfterFilterCondition> titleLessThan(
     String value, {
     bool caseSensitive = true,
     bool include = false,
@@ -501,7 +501,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> titleBetween(
+  QueryBuilder<Task, Task, QAfterFilterCondition> titleBetween(
     String lower,
     String upper, {
     bool caseSensitive = true,
@@ -518,7 +518,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> titleStartsWith(
+  QueryBuilder<Task, Task, QAfterFilterCondition> titleStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -530,7 +530,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> titleEndsWith(
+  QueryBuilder<Task, Task, QAfterFilterCondition> titleEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -542,7 +542,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> titleContains(String value,
+  QueryBuilder<Task, Task, QAfterFilterCondition> titleContains(String value,
       {bool caseSensitive = true}) {
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.contains,
@@ -552,7 +552,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> titleMatches(String pattern,
+  QueryBuilder<Task, Task, QAfterFilterCondition> titleMatches(String pattern,
       {bool caseSensitive = true}) {
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.matches,
@@ -562,7 +562,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> urlEqualTo(
+  QueryBuilder<Task, Task, QAfterFilterCondition> urlEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -574,7 +574,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> urlGreaterThan(
+  QueryBuilder<Task, Task, QAfterFilterCondition> urlGreaterThan(
     String value, {
     bool caseSensitive = true,
     bool include = false,
@@ -588,7 +588,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> urlLessThan(
+  QueryBuilder<Task, Task, QAfterFilterCondition> urlLessThan(
     String value, {
     bool caseSensitive = true,
     bool include = false,
@@ -602,7 +602,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> urlBetween(
+  QueryBuilder<Task, Task, QAfterFilterCondition> urlBetween(
     String lower,
     String upper, {
     bool caseSensitive = true,
@@ -619,7 +619,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> urlStartsWith(
+  QueryBuilder<Task, Task, QAfterFilterCondition> urlStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -631,7 +631,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> urlEndsWith(
+  QueryBuilder<Task, Task, QAfterFilterCondition> urlEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -643,7 +643,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> urlContains(String value,
+  QueryBuilder<Task, Task, QAfterFilterCondition> urlContains(String value,
       {bool caseSensitive = true}) {
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.contains,
@@ -653,7 +653,7 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
     ));
   }
 
-  QueryBuilder<Todo, Todo, QAfterFilterCondition> urlMatches(String pattern,
+  QueryBuilder<Task, Task, QAfterFilterCondition> urlMatches(String pattern,
       {bool caseSensitive = true}) {
     return addFilterConditionInternal(FilterCondition(
       type: ConditionType.matches,
@@ -664,159 +664,159 @@ extension TodoQueryFilter on QueryBuilder<Todo, Todo, QFilterCondition> {
   }
 }
 
-extension TodoQueryLinks on QueryBuilder<Todo, Todo, QFilterCondition> {}
+extension TaskQueryLinks on QueryBuilder<Task, Task, QFilterCondition> {}
 
-extension TodoQueryWhereSortBy on QueryBuilder<Todo, Todo, QSortBy> {
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortByHashCode() {
+extension TaskQueryWhereSortBy on QueryBuilder<Task, Task, QSortBy> {
+  QueryBuilder<Task, Task, QAfterSortBy> sortByHashCode() {
     return addSortByInternal('hashCode', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortByHashCodeDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> sortByHashCodeDesc() {
     return addSortByInternal('hashCode', Sort.desc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortById() {
+  QueryBuilder<Task, Task, QAfterSortBy> sortById() {
     return addSortByInternal('id', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortByIdDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> sortByIdDesc() {
     return addSortByInternal('id', Sort.desc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortByMemo() {
+  QueryBuilder<Task, Task, QAfterSortBy> sortByMemo() {
     return addSortByInternal('memo', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortByMemoDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> sortByMemoDesc() {
     return addSortByInternal('memo', Sort.desc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortByStringify() {
+  QueryBuilder<Task, Task, QAfterSortBy> sortByStringify() {
     return addSortByInternal('stringify', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortByStringifyDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> sortByStringifyDesc() {
     return addSortByInternal('stringify', Sort.desc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortByTitle() {
+  QueryBuilder<Task, Task, QAfterSortBy> sortByTitle() {
     return addSortByInternal('title', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortByTitleDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> sortByTitleDesc() {
     return addSortByInternal('title', Sort.desc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortByUrl() {
+  QueryBuilder<Task, Task, QAfterSortBy> sortByUrl() {
     return addSortByInternal('url', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> sortByUrlDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> sortByUrlDesc() {
     return addSortByInternal('url', Sort.desc);
   }
 }
 
-extension TodoQueryWhereSortThenBy on QueryBuilder<Todo, Todo, QSortThenBy> {
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenByHashCode() {
+extension TaskQueryWhereSortThenBy on QueryBuilder<Task, Task, QSortThenBy> {
+  QueryBuilder<Task, Task, QAfterSortBy> thenByHashCode() {
     return addSortByInternal('hashCode', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenByHashCodeDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> thenByHashCodeDesc() {
     return addSortByInternal('hashCode', Sort.desc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenById() {
+  QueryBuilder<Task, Task, QAfterSortBy> thenById() {
     return addSortByInternal('id', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenByIdDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> thenByIdDesc() {
     return addSortByInternal('id', Sort.desc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenByMemo() {
+  QueryBuilder<Task, Task, QAfterSortBy> thenByMemo() {
     return addSortByInternal('memo', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenByMemoDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> thenByMemoDesc() {
     return addSortByInternal('memo', Sort.desc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenByStringify() {
+  QueryBuilder<Task, Task, QAfterSortBy> thenByStringify() {
     return addSortByInternal('stringify', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenByStringifyDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> thenByStringifyDesc() {
     return addSortByInternal('stringify', Sort.desc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenByTitle() {
+  QueryBuilder<Task, Task, QAfterSortBy> thenByTitle() {
     return addSortByInternal('title', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenByTitleDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> thenByTitleDesc() {
     return addSortByInternal('title', Sort.desc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenByUrl() {
+  QueryBuilder<Task, Task, QAfterSortBy> thenByUrl() {
     return addSortByInternal('url', Sort.asc);
   }
 
-  QueryBuilder<Todo, Todo, QAfterSortBy> thenByUrlDesc() {
+  QueryBuilder<Task, Task, QAfterSortBy> thenByUrlDesc() {
     return addSortByInternal('url', Sort.desc);
   }
 }
 
-extension TodoQueryWhereDistinct on QueryBuilder<Todo, Todo, QDistinct> {
-  QueryBuilder<Todo, Todo, QDistinct> distinctByHashCode() {
+extension TaskQueryWhereDistinct on QueryBuilder<Task, Task, QDistinct> {
+  QueryBuilder<Task, Task, QDistinct> distinctByHashCode() {
     return addDistinctByInternal('hashCode');
   }
 
-  QueryBuilder<Todo, Todo, QDistinct> distinctById() {
+  QueryBuilder<Task, Task, QDistinct> distinctById() {
     return addDistinctByInternal('id');
   }
 
-  QueryBuilder<Todo, Todo, QDistinct> distinctByMemo(
+  QueryBuilder<Task, Task, QDistinct> distinctByMemo(
       {bool caseSensitive = true}) {
     return addDistinctByInternal('memo', caseSensitive: caseSensitive);
   }
 
-  QueryBuilder<Todo, Todo, QDistinct> distinctByStringify() {
+  QueryBuilder<Task, Task, QDistinct> distinctByStringify() {
     return addDistinctByInternal('stringify');
   }
 
-  QueryBuilder<Todo, Todo, QDistinct> distinctByTitle(
+  QueryBuilder<Task, Task, QDistinct> distinctByTitle(
       {bool caseSensitive = true}) {
     return addDistinctByInternal('title', caseSensitive: caseSensitive);
   }
 
-  QueryBuilder<Todo, Todo, QDistinct> distinctByUrl(
+  QueryBuilder<Task, Task, QDistinct> distinctByUrl(
       {bool caseSensitive = true}) {
     return addDistinctByInternal('url', caseSensitive: caseSensitive);
   }
 }
 
-extension TodoQueryProperty on QueryBuilder<Todo, Todo, QQueryProperty> {
-  QueryBuilder<Todo, int, QQueryOperations> hashCodeProperty() {
+extension TaskQueryProperty on QueryBuilder<Task, Task, QQueryProperty> {
+  QueryBuilder<Task, int, QQueryOperations> hashCodeProperty() {
     return addPropertyNameInternal('hashCode');
   }
 
-  QueryBuilder<Todo, int?, QQueryOperations> idProperty() {
+  QueryBuilder<Task, int?, QQueryOperations> idProperty() {
     return addPropertyNameInternal('id');
   }
 
-  QueryBuilder<Todo, String, QQueryOperations> memoProperty() {
+  QueryBuilder<Task, String, QQueryOperations> memoProperty() {
     return addPropertyNameInternal('memo');
   }
 
-  QueryBuilder<Todo, bool?, QQueryOperations> stringifyProperty() {
+  QueryBuilder<Task, bool?, QQueryOperations> stringifyProperty() {
     return addPropertyNameInternal('stringify');
   }
 
-  QueryBuilder<Todo, String, QQueryOperations> titleProperty() {
+  QueryBuilder<Task, String, QQueryOperations> titleProperty() {
     return addPropertyNameInternal('title');
   }
 
-  QueryBuilder<Todo, String, QQueryOperations> urlProperty() {
+  QueryBuilder<Task, String, QQueryOperations> urlProperty() {
     return addPropertyNameInternal('url');
   }
 }
